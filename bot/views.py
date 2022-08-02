@@ -12,7 +12,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import os
-from WhatsAppBot.settings import BASE_DIR
+from whatsAppbot.settings import BASE_DIR
 
 # client=Client(account_sid,auth_token)
 
