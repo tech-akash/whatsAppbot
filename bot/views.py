@@ -40,11 +40,12 @@ def prepare_msg(driver,name,phoneNo,msg):
 
 def sendWhatsAppMessage(name,phoneNo,msg):
     
-    chrome_options = Options()
-    chrome_options.add_argument("--user-data-dir-Session")
-    chrome_options.add_argument("--profile-directory=Default")
-    PATH = os.path.join(BASE_DIR,'chromedriver')
-    driver = webdriver.Chrome(PATH, options=chrome_options)
+    # chrome_options = Options()
+    # chrome_options.add_argument("--user-data-dir-Session")
+    # chrome_options.add_argument("--profile-directory=Default")
+    # PATH = os.path.join(BASE_DIR,'chromedriver')
+    # driver = webdriver.Chrome(PATH, options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     prepare_msg(driver,name,phoneNo,msg)
     
 
