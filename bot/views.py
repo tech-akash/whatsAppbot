@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import os
+from django.views.decorators.csrf import csrf_exempt
 from whatsAppbot.settings import BASE_DIR
 
 # client=Client(account_sid,auth_token)
@@ -37,7 +38,7 @@ def prepare_msg(driver,name,phoneNo,msg):
         send_message(url_msg,driver)
 
     
-
+@csrf_exempt
 def sendWhatsAppMessage(name,phoneNo,msg):
     op=webdriver.ChromeOptions()
     op.binary_location=os.environ.get("GOOGLE_CHROME_BIN")
@@ -45,10 +46,10 @@ def sendWhatsAppMessage(name,phoneNo,msg):
     op.add_argument("--no-sandbox")
     op.add_argument("--disable-dev-sh-usage")
     driver=webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
-    
+
     prepare_msg(driver,name,phoneNo,msg)
     
-
+@csrf_exempt
 def bot(request):
     if request.method=='POST':
         # sendWhatsAppMessage()
