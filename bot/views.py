@@ -22,8 +22,10 @@ def element_presence(by, xpath, time,driver):
     WebDriverWait(driver, time).until(element_present)
 
 def send_message(url,driver):
+
     driver.get(url)
     time.sleep(2)
+    print(url)
     xpath='//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]'
     element_presence(By.XPATH,xpath , 100,driver)
     msg_box = driver.find_element(By.XPATH, xpath)
@@ -34,7 +36,7 @@ def prepare_msg(driver,name,phoneNo,msg):
     base_url = 'https://web.whatsapp.com/send?phone={}&text={}'
     for i in range(len(name)):
         url_msg = base_url.format(phoneNo[i], msg)
-        print(url_msg)
+        # print(url_msg)
         send_message(url_msg,driver)
 
     
