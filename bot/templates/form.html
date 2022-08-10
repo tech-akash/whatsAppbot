@@ -9,8 +9,11 @@
 <body>
     <form method="post">
         {%csrf_token%}
+        <lable> Name </lable>
         <input lable ="Name" type="text" name="name" required/>
+        <lable> Phone Numbers </lable>
         <input lable ="Phone Numbers" type="text" name="phoneNo" required/>
+        <lable> Message </lable>
         <input lable ="Message" type="text" name="msg" required/>
         <input type="submit"/>
     </form>
